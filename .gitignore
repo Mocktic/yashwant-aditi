@@ -1,0 +1,10 @@
+.DS_Store
+.venv/
+__pycache__/
+
+# Source media stays local: the repo is public and Vercel only needs site/.
+# (raw green-screen assets, reference videos, real photos, downloads)
+/assets/
+/ref.mp4
+/ref2.mp4
+/kling_*.mp4

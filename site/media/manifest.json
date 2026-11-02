@@ -1,0 +1,35 @@
+{
+  "stills": [
+    "intro",
+    "haldi",
+    "engagement",
+    "baraat",
+    "wedding",
+    "reception",
+    "finale",
+    "afterparty",
+    "thanks"
+  ],
+  "videos": [
+    "intro",
+    "haldi",
+    "engagement",
+    "baraat",
+    "wedding",
+    "reception",
+    "finale",
+    "afterparty",
+    "thanks"
+  ],
+  "durations": {
+    "intro": 5.04,
+    "haldi": 3.04,
+    "engagement": 3.04,
+    "baraat": 4.0,
+    "wedding": 4.0,
+    "reception": 4.0,
+    "finale": 4.0,
+    "afterparty": 4.0,
+    "thanks": 4.0
+  }
+}
