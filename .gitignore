@@ -8,3 +8,6 @@ __pycache__/
 /ref.mp4
 /ref2.mp4
 /kling_*.mp4
+
+# loose audio downloads in the project root (the invite uses assets/music.mp3)
+/*.mp3
