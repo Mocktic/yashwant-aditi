@@ -66,7 +66,19 @@ song, save it as `assets/music.mp3` and run the asset script again.
 
 ## RSVPs
 
-They go to the **same Google Sheet** as the first invite (the Apps Script web app in
-`ShambhuWedInvite/scripts/rsvp-apps-script.gs`). Each row has the time, name, events attending
-(`A | B`), message, and the link the guest used (`all`, `haldi-reception`, `reception`, `party`).
-The event names match the first invite's, so the Summary tab's counts keep working.
+They go to the **same Google Sheet** as the first invite. Each row has the time, name, events
+attending (`A | B`), message, the link the guest used (`all`, `haldi-reception`, `reception`,
+`party`) and phone number. The event names match the first invite's, so the Summary tab's counts
+keep working.
+
+The **Phone** column needs the updated script in `tools/rsvp-apps-script.gs`. In the sheet, open
+**Extensions → Apps Script**, replace the code with that file and **Save**. Then go to **Deploy → Manage
+deployments → ✏️ Edit → Version: New version → Deploy**. Editing the existing deployment keeps the same URL,
+so `config.js` doesn't change. Phone goes in as the last column, so earlier rows stay lined up, and
+the header cell is added on the next RSVP.
+
+## Link preview (WhatsApp, Instagram, iMessage)
+
+`site/preview.jpg` (1200×630, cropped from `assets/preview.jpeg`) plus the `og:` tags in
+`site/index.html`, which use the full address `https://aditiwedsyashwant.justfilms.co.in/preview.jpg`.
+WhatsApp caches previews, so after changing the picture share the link with `?v=2` (then `?v=3`, …).

@@ -180,6 +180,11 @@ function rsvpScreen() {
             <input name="name" autocomplete="name" maxlength="80" required value="${esc(guest)}" placeholder="Type your name">
             <span class="field__error" data-for="name"></span>
           </label>
+          <label class="field">
+            <span class="field__label">Phone number</span>
+            <input name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="20" required value="${esc(load('guest-phone') || '')}" placeholder="+91 98765 43210">
+            <span class="field__error" data-for="phone"></span>
+          </label>
           <fieldset class="field">
             <legend class="field__label">${events.length > 1 ? 'Which celebrations will you join?' : 'Will you join us?'}</legend>
             <div class="cards ${events.length === 1 ? 'cards--one' : ''}">${cards}</div>
@@ -371,10 +376,15 @@ form.querySelectorAll('.card').forEach((card) => card.addEventListener('click', 
   card.setAttribute('aria-pressed', card.getAttribute('aria-pressed') !== 'true');
   form.querySelector('[data-for=events]').textContent = '';
 }));
+form.addEventListener('input', (ev) => {
+  const err = form.querySelector(`.field__error[data-for="${ev.target.name}"]`);
+  if (err) err.textContent = '';
+});
 form.addEventListener('submit', async (ev) => {
   ev.preventDefault();
   const data = {
     name: form.elements.name.value,
+    phone: form.elements.phone.value,
     message: form.elements.message.value,
     events: [...form.querySelectorAll('.card[aria-pressed=true]')].map((c) => c.dataset.title),
     invited: events.map((e) => e.title),
@@ -395,6 +405,7 @@ form.addEventListener('submit', async (ev) => {
   try {
     await submitRsvp(data, config.rsvp.endpoint);
     guest = data.name.trim();
+    save('guest-phone', data.phone.trim());
     save('guest-name', guest);
     showThanks(data.events);
   } catch (err) {
