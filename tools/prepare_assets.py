@@ -13,7 +13,6 @@ video where there is one and the still everywhere else. Run it again after addin
     .venv/bin/python tools/prepare_assets.py
 """
 import json
-import shutil
 import subprocess
 from pathlib import Path
 
@@ -134,9 +133,15 @@ def decos():
 
 
 def music():
+    """The song loops, so it gets a short fade-in and a 2 s fade-out to make the restart smooth."""
     src = SRC / 'music.mp3'
-    if src.exists():
-        shutil.copy(src, OUT / 'music.mp3')
+    if not src.exists():
+        return
+    length = float(subprocess.check_output(
+        ['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', str(src)]).decode())
+    subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', str(src),
+                    '-af', f'afade=t=in:d=0.3,afade=t=out:st={length - 2:.2f}:d=2',
+                    '-c:a', 'libmp3lame', '-b:a', '192k', str(OUT / 'music.mp3')], check=True)
 
 
 def main():

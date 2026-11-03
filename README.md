@@ -61,8 +61,9 @@ The same script turns the green-screen stills into transparent images and the wh
 
 ## Music
 
-`site/media/music.mp3` is currently the soundtrack from `ref.mp4`, as a stand-in. To use your own
-song, save it as `assets/music.mp3` and run the asset script again.
+`site/media/music.mp3` is made from `assets/music.mp3` (the background track) by the asset
+script, which adds a short fade-in and a 2 s fade-out so the loop restarts smoothly. To change the
+song, replace `assets/music.mp3` and run the asset script again.
 
 ## RSVPs
 
