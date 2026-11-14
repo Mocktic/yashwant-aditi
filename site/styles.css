@@ -335,8 +335,8 @@ input::placeholder, textarea::placeholder { color: #9b8cc7; font-weight: 400; }
   padding: calc(var(--top) + 6px) 22px calc(env(safe-area-inset-bottom, 0px) + 28px);
   text-align: center;
 }
-.rsvp__title { margin: 4px 0 14px; font: 700 52px/1 var(--font-hand); letter-spacing: 2px; }
-.rsvp__title span { display: block; font: 30px var(--font-script); letter-spacing: 0; color: var(--pink); transform: rotate(-4deg); }
+.rsvp__title { margin: 4px 0 14px; font: 700 min(52px, 13vw)/1 var(--font-hand); letter-spacing: 1px; white-space: nowrap; }
+.rsvp__title span { display: block; margin-top: 4px; font: 30px var(--font-script); letter-spacing: 0; color: var(--pink); transform: rotate(-4deg); }
 .rsvp__form { display: flex; flex-direction: column; gap: 16px; text-align: left; }
 .field { display: flex; flex-direction: column; gap: 8px; margin: 0; padding: 0; border: 0; min-width: 0; }
 .field__label { padding: 0; font: 700 20px var(--font-hand); color: var(--pink); }

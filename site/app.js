@@ -173,7 +173,7 @@ function rsvpScreen() {
       <img class="deco deco--soft" src="media/deco/rsvp.webp" alt="">
       <div class="rsvp__scroll">
         ${heart('heart--rsvp anim pop a1')}
-        <h2 class="rsvp__title anim a2">RSVP <span>now!</span></h2>
+        <h2 class="rsvp__title anim a2">Padharo Sa! <span>we await you</span></h2>
         <form class="rsvp__form anim a3" novalidate>
           <label class="field">
             <span class="field__label">Your name</span>
@@ -196,7 +196,7 @@ function rsvpScreen() {
             <span class="field__error" data-for="message"></span>
           </label>
           <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-          <button class="btn btn--send" type="submit">Send RSVP</button>
+          <button class="btn btn--send" type="submit">Send Wishes!</button>
           <p class="rsvp__status" role="status"></p>
         </form>
         <button type="button" class="link-btn replay">&#8634; Watch the invite again</button>
@@ -413,7 +413,7 @@ form.addEventListener('submit', async (ev) => {
     status.textContent = "Oops, that didn't go through. Please check your connection and try again.";
   } finally {
     btn.disabled = false;
-    btn.textContent = 'Send RSVP';
+    btn.textContent = 'Send Wishes!';
   }
 });
 
